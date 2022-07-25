@@ -490,3 +490,1617 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 12ms (Views: 11.4ms | Allocations: 2954)
 
 
+  [1m[35m (640.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (215.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (25.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1605976831841687025)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (28.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBuddies (20220725130231)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (201.4ms)[0m  [1m[35mCREATE TABLE "buddies" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "phone_num" character varying, "github" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220725130231"]]
+  [1m[36mTRANSACTION (31.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (32.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-07-25 13:09:57.107323"], ["updated_at", "2022-07-25 13:09:57.107323"]]
+  [1m[36mTRANSACTION (12.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(1605976831841687025)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2022-07-25 15:14:43 +0200
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 153)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 301)
+  Rendered layout layouts/application.html.erb (Duration: 122.7ms | Allocations: 15888)
+Completed 200 OK in 137ms (Views: 125.5ms | ActiveRecord: 0.0ms | Allocations: 16867)
+
+
+Started GET "/" for 127.0.0.1 at 2022-07-25 15:14:55 +0200
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 99)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 2691)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 2975)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:15:04 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.9ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1413)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 99)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 4142)
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 0.9ms | Allocations: 5761)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:15:07 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 770.1ms | Allocations: 5026)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 772.5ms | Allocations: 5391)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 782.3ms | Allocations: 8014)
+Completed 200 OK in 812ms (Views: 783.4ms | ActiveRecord: 9.1ms | Allocations: 12921)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:15:58 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 878)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 90)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 3382)
+Completed 200 OK in 20ms (Views: 18.4ms | ActiveRecord: 0.5ms | Allocations: 3704)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:16:00 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 4.9ms | Allocations: 1479)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1587)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 4085)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 4380)
+
+
+Started POST "/buddies" for 127.0.0.1 at 2022-07-25 15:16:08 +0200
+Processing by BuddiesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "buddy"=>{"first_name"=>"Anicet", "last_name"=>"Murhula", "phone_num"=>"+250786094847", "github"=>""}, "commit"=>"Create Buddy"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mBuddy Create (1.4ms)[0m  [1m[32mINSERT INTO "buddies" ("first_name", "last_name", "phone_num", "github", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Anicet"], ["last_name", "Murhula"], ["phone_num", "+250786094847"], ["github", ""], ["created_at", "2022-07-25 13:16:08.104232"], ["updated_at", "2022-07-25 13:16:08.104232"]]
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (36.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/buddies/1
+Completed 302 Found in 54ms (ActiveRecord: 38.2ms | Allocations: 3889)
+
+
+Started GET "/buddies/1" for 127.0.0.1 at 2022-07-25 15:16:08 +0200
+Processing by BuddiesController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 1.1ms | Allocations: 290)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 33.9ms | Allocations: 1682)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 40.8ms | Allocations: 4282)
+Completed 200 OK in 49ms (Views: 41.7ms | ActiveRecord: 0.8ms | Allocations: 7145)
+
+
+Started DELETE "/buddies/1" for 127.0.0.1 at 2022-07-25 15:16:13 +0200
+Processing by BuddiesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/buddies_controller.rb:52:in `destroy'
+  [1m[36mBuddy Destroy (22.5ms)[0m  [1m[31mDELETE FROM "buddies" WHERE "buddies"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/buddies_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/buddies_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/buddies
+Completed 302 Found in 42ms (ActiveRecord: 31.5ms | Allocations: 2695)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:16:13 +0200
+Processing by BuddiesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 830)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 90)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 3337)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.5ms | Allocations: 3647)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:16:15 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 17.5ms | Allocations: 1516)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 18.1ms | Allocations: 1624)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | Allocations: 4135)
+Completed 200 OK in 25ms (Views: 24.4ms | ActiveRecord: 0.0ms | Allocations: 4425)
+
+
+Started POST "/buddies" for 127.0.0.1 at 2022-07-25 15:16:24 +0200
+Processing by BuddiesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "buddy"=>{"first_name"=>"Anicet", "last_name"=>"Murhula", "phone_num"=>"+250786094847", "github"=>"@FantomasAnicet"}, "commit"=>"Create Buddy"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mBuddy Create (0.7ms)[0m  [1m[32mINSERT INTO "buddies" ("first_name", "last_name", "phone_num", "github", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Anicet"], ["last_name", "Murhula"], ["phone_num", "+250786094847"], ["github", "@FantomasAnicet"], ["created_at", "2022-07-25 13:16:24.694596"], ["updated_at", "2022-07-25 13:16:24.694596"]]
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (104.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/buddies/2
+Completed 302 Found in 117ms (ActiveRecord: 105.0ms | Allocations: 2414)
+
+
+Started GET "/buddies/2" for 127.0.0.1 at 2022-07-25 15:16:24 +0200
+Processing by BuddiesController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mBuddy Load (0.7ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 608)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3105)
+Completed 200 OK in 14ms (Views: 10.1ms | ActiveRecord: 0.7ms | Allocations: 3901)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:20:34 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (2.0ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 975)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 3473)
+Completed 200 OK in 24ms (Views: 19.2ms | ActiveRecord: 2.0ms | Allocations: 3754)
+
+
+Started GET "/buddies/2" for 127.0.0.1 at 2022-07-25 15:20:38 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBuddy Load (0.8ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 571)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 89)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3062)
+Completed 200 OK in 19ms (Views: 11.8ms | ActiveRecord: 0.8ms | Allocations: 3852)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:28:27 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.9ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 2.2ms | Allocations: 237)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 31.1ms | Allocations: 4700)
+  Rendered home/_header.html.erb (Duration: 1.4ms | Allocations: 319)
+  Rendered layout layouts/application.html.erb (Duration: 44.0ms | Allocations: 7899)
+Completed 200 OK in 48ms (Views: 46.9ms | ActiveRecord: 11.8ms | Allocations: 8755)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:28:29 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 947)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 3487)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.5ms | Allocations: 3792)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:28:30 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.8ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 959)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 3495)
+Completed 200 OK in 21ms (Views: 18.4ms | ActiveRecord: 0.8ms | Allocations: 3776)
+
+
+Started GET "/home/about" for 127.0.0.1 at 2022-07-25 15:28:31 +0200
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 1.1ms | Allocations: 145)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 174)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 3168)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 3752)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:28:32 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 35)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1059)
+  Rendered home/_header.html.erb (Duration: 0.3ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 3595)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.5ms | Allocations: 3899)
+
+
+Started GET "/home/about" for 127.0.0.1 at 2022-07-25 15:28:33 +0200
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.1ms | Allocations: 18)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 137)
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 2708)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms | Allocations: 2979)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:28:34 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 7.6ms | Allocations: 983)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 127)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 3520)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.5ms | Allocations: 3801)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:31:16 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 1.7ms | Allocations: 237)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1721)
+  Rendered home/_header.html.erb (Duration: 7.6ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 4983)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.5ms | Allocations: 5859)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:31:18 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 8.3ms | Allocations: 1980)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2292)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 22.9ms | Allocations: 4879)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms | Allocations: 5245)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:31:21 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 6.1ms | Allocations: 965)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 3540)
+Completed 200 OK in 22ms (Views: 15.4ms | ActiveRecord: 0.5ms | Allocations: 3824)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:31:23 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 5.6ms | Allocations: 1460)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 6.4ms | Allocations: 1568)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 4148)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 4433)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:31:28 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 959)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3534)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.4ms | Allocations: 3815)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:31:29 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 6.3ms | Allocations: 1451)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1559)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | Allocations: 4133)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 4418)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:33:28 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 6.2ms | Allocations: 2086)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2443)
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 5692)
+Completed 200 OK in 26ms (Views: 24.6ms | ActiveRecord: 0.0ms | Allocations: 6540)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:33:34 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.8ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 1.9ms | Allocations: 233)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 1582)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 4157)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.8ms | Allocations: 4538)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:38:37 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.7ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 1.9ms | Allocations: 237)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1709)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 4968)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.7ms | Allocations: 5827)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:39:38 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  Rendered buddies/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1251)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1346)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2215)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<h1>Buddies List</h1>
+
+<div id="buddies" >
+  <% @buddies.each do |buddy| class="table" %>
+    <%= render buddy %>
+    <p>
+      <%= link_to "Show this buddy", buddy %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New buddy", new_buddy_path %>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <h1>Buddies List</h1>
+4:    
+5:    <div id="buddies" >
+6:      <% @buddies.each do |buddy| class="table" %>
+7:        <%= render buddy %>
+8:        <p>
+9:          <%= link_to "Show this buddy", buddy %>
+10:        </p>
+11:      <% end %>
+12:    </div>
+13:    
+14:    <%= link_to "New buddy", new_buddy_path %>
+  
+app/views/buddies/index.html.erb:6: syntax error, unexpected '='
+app/views/buddies/index.html.erb:6: syntax error, unexpected '='
+app/views/buddies/index.html.erb:6: syntax error, unexpected '='
+app/views/buddies/index.html.erb:6: syntax error, unexpected '='
+app/views/buddies/index.html.erb:6: syntax error, unexpected '='
+app/views/buddies/index.html.erb:6: syntax error, unexpected '='
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:40:00 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 1.6ms | Allocations: 237)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1735)
+  Rendered home/_header.html.erb (Duration: 2.0ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 5007)
+Completed 200 OK in 31ms (Views: 28.4ms | ActiveRecord: 0.6ms | Allocations: 5883)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:40:33 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 1.0ms | Allocations: 237)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 8.3ms | Allocations: 1712)
+  Rendered home/_header.html.erb (Duration: 3.4ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 4971)
+Completed 200 OK in 28ms (Views: 26.1ms | ActiveRecord: 0.5ms | Allocations: 5853)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:40:36 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 6.2ms | Allocations: 1980)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 2291)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 4865)
+Completed 200 OK in 20ms (Views: 18.5ms | ActiveRecord: 0.0ms | Allocations: 5230)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:40:37 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 968)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | Allocations: 3542)
+Completed 200 OK in 16ms (Views: 14.8ms | ActiveRecord: 0.5ms | Allocations: 3825)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:43:02 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 2.6ms | Allocations: 238)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1733)
+  Rendered home/_header.html.erb (Duration: 1.4ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 5005)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 0.6ms | Allocations: 5865)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:46:52 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 3.1ms | Allocations: 237)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 1714)
+  Rendered home/_header.html.erb (Duration: 1.8ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 24.4ms | Allocations: 4973)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.5ms | Allocations: 5855)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:49:21 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 2.4ms | Allocations: 234)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1708)
+  Rendered home/_header.html.erb (Duration: 1.6ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | Allocations: 4967)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.4ms | Allocations: 5849)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:53:06 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 2.3ms | Allocations: 226)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 13.1ms | Allocations: 1691)
+  Rendered home/_header.html.erb (Duration: 1.8ms | Allocations: 381)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 4951)
+Completed 200 OK in 32ms (Views: 28.3ms | ActiveRecord: 0.6ms | Allocations: 5833)
+
+
+Started GET "/buddies/2" for 127.0.0.1 at 2022-07-25 15:53:25 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mBuddy Load (0.7ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 796)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 3365)
+Completed 200 OK in 22ms (Views: 16.0ms | ActiveRecord: 0.9ms | Allocations: 4317)
+
+
+Started DELETE "/buddies/2" for 127.0.0.1 at 2022-07-25 15:53:28 +0200
+Processing by BuddiesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mBuddy Load (0.7ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/buddies_controller.rb:52:in `destroy'
+  [1m[36mBuddy Destroy (0.8ms)[0m  [1m[31mDELETE FROM "buddies" WHERE "buddies"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/buddies_controller.rb:52:in `destroy'
+  [1m[36mTRANSACTION (16.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/buddies_controller.rb:52:in `destroy'
+Redirected to http://127.0.0.1:3000/buddies
+Completed 302 Found in 30ms (ActiveRecord: 18.4ms | Allocations: 2476)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:53:28 +0200
+Processing by BuddiesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.7ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 789)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 166)
+  Rendered layout layouts/application.html.erb (Duration: 12.6ms | Allocations: 3427)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.7ms | Allocations: 3757)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:53:34 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 8.6ms | Allocations: 1956)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2267)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 4841)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 5183)
+
+
+Started POST "/buddies" for 127.0.0.1 at 2022-07-25 15:53:42 +0200
+Processing by BuddiesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "buddy"=>{"first_name"=>"Anicet", "last_name"=>"Murhula", "phone_num"=>"+250786094847", "github"=>"@FantomasAnicet"}, "commit"=>"Create Buddy"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mBuddy Create (0.8ms)[0m  [1m[32mINSERT INTO "buddies" ("first_name", "last_name", "phone_num", "github", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Anicet"], ["last_name", "Murhula"], ["phone_num", "+250786094847"], ["github", "@FantomasAnicet"], ["created_at", "2022-07-25 13:53:42.191621"], ["updated_at", "2022-07-25 13:53:42.191621"]]
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (32.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/buddies/3
+Completed 302 Found in 47ms (ActiveRecord: 34.0ms | Allocations: 2391)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 15:53:42 +0200
+Processing by BuddiesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.7ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 18.6ms | Allocations: 619)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 72.7ms | Allocations: 3185)
+Completed 200 OK in 79ms (Views: 74.1ms | ActiveRecord: 0.7ms | Allocations: 3978)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 15:54:18 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 1.2ms | Allocations: 222)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1258)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | Allocations: 4505)
+Completed 200 OK in 59ms (Views: 18.3ms | ActiveRecord: 0.5ms | Allocations: 5884)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:54:30 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1242)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 3829)
+Completed 200 OK in 21ms (Views: 18.5ms | ActiveRecord: 0.6ms | Allocations: 4211)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 15:54:41 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 592)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 3158)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.5ms | Allocations: 3976)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 15:55:12 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 10.2ms | Allocations: 1947)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 2258)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 20.3ms | Allocations: 4832)
+Completed 200 OK in 23ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 5174)
+
+
+Started POST "/buddies" for 127.0.0.1 at 2022-07-25 15:55:48 +0200
+Processing by BuddiesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "buddy"=>{"first_name"=>"Valley", "last_name"=>"Kambale", "phone_num"=>"+250786094847", "github"=>"@ValleyViddi"}, "commit"=>"Create Buddy"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mBuddy Create (0.8ms)[0m  [1m[32mINSERT INTO "buddies" ("first_name", "last_name", "phone_num", "github", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Valley"], ["last_name", "Kambale"], ["phone_num", "+250786094847"], ["github", "@ValleyViddi"], ["created_at", "2022-07-25 13:55:48.377088"], ["updated_at", "2022-07-25 13:55:48.377088"]]
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (104.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/buddies/4
+Completed 302 Found in 117ms (ActiveRecord: 105.6ms | Allocations: 2420)
+
+
+Started GET "/buddies/4" for 127.0.0.1 at 2022-07-25 15:55:48 +0200
+Processing by BuddiesController#show as TURBO_STREAM
+  Parameters: {"id"=>"4"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 30)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 654)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | Allocations: 3220)
+Completed 200 OK in 18ms (Views: 13.8ms | ActiveRecord: 0.5ms | Allocations: 4057)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:55:58 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 30)
+  Rendered buddies/_buddy.html.erb (Duration: 0.1ms | Allocations: 29)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1104)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 3678)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.5ms | Allocations: 3959)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:58:08 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 1.8ms | Allocations: 346)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 65)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1869)
+  Rendered home/_header.html.erb (Duration: 2.5ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 5128)
+Completed 200 OK in 28ms (Views: 25.3ms | ActiveRecord: 0.5ms | Allocations: 5989)
+
+
+Started GET "/buddies/4" for 127.0.0.1 at 2022-07-25 15:58:20 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.5ms | Allocations: 76)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 814)
+  Rendered home/_header.html.erb (Duration: 1.0ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | Allocations: 3393)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 0.5ms | Allocations: 4309)
+
+
+Started GET "/buddies/4" for 127.0.0.1 at 2022-07-25 15:58:25 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mBuddy Load (0.3ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.5ms | Allocations: 76)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 613)
+  Rendered home/_header.html.erb (Duration: 0.4ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 3179)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 0.3ms | Allocations: 3969)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:58:53 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 1.5ms | Allocations: 345)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 65)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1845)
+  Rendered home/_header.html.erb (Duration: 1.6ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 5104)
+Completed 200 OK in 27ms (Views: 24.4ms | ActiveRecord: 0.6ms | Allocations: 5965)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 15:59:05 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 3.3ms | Allocations: 344)
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 65)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 1858)
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 5131)
+Completed 200 OK in 38ms (Views: 25.4ms | ActiveRecord: 0.5ms | Allocations: 6016)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:00:22 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.7ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:6
+  Rendered buddies/_buddy.html.erb (Duration: 2.5ms | Allocations: 318)
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 11.8ms | Allocations: 1811)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 5082)
+Completed 200 OK in 28ms (Views: 25.2ms | ActiveRecord: 0.7ms | Allocations: 5965)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:01:55 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.9ms | Allocations: 307)
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.5ms | Allocations: 1819)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 5078)
+Completed 200 OK in 25ms (Views: 22.7ms | ActiveRecord: 0.5ms | Allocations: 5960)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 16:02:00 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 7.2ms | Allocations: 1967)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 2278)
+  Rendered home/_header.html.erb (Duration: 1.1ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | Allocations: 4852)
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 5217)
+
+
+Started POST "/buddies" for 127.0.0.1 at 2022-07-25 16:02:36 +0200
+Processing by BuddiesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "buddy"=>{"first_name"=>"Yannick", "last_name"=>"Zahinda", "phone_num"=>"+250786094847", "github"=>"@YanSurLeYatch"}, "commit"=>"Create Buddy"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mBuddy Create (0.7ms)[0m  [1m[32mINSERT INTO "buddies" ("first_name", "last_name", "phone_num", "github", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["first_name", "Yannick"], ["last_name", "Zahinda"], ["phone_num", "+250786094847"], ["github", "@YanSurLeYatch"], ["created_at", "2022-07-25 14:02:36.380074"], ["updated_at", "2022-07-25 14:02:36.380074"]]
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (49.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/buddies_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/buddies/5
+Completed 302 Found in 63ms (ActiveRecord: 50.4ms | Allocations: 2432)
+
+
+Started GET "/buddies/5" for 127.0.0.1 at 2022-07-25 16:02:36 +0200
+Processing by BuddiesController#show as TURBO_STREAM
+  Parameters: {"id"=>"5"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.7ms | Allocations: 70)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 5.6ms | Allocations: 909)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 3475)
+Completed 200 OK in 21ms (Views: 15.6ms | ActiveRecord: 0.4ms | Allocations: 4401)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:02:53 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 0.6ms | Allocations: 70)
+  Rendered buddies/_buddy.html.erb (Duration: 0.6ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.7ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 1246)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 3820)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.4ms | Allocations: 4103)
+
+
+Started GET "/buddies/new" for 127.0.0.1 at 2022-07-25 16:03:03 +0200
+Processing by BuddiesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/new.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 6.0ms | Allocations: 1472)
+  Rendered buddies/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1580)
+  Rendered home/_header.html.erb (Duration: 0.5ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 13.6ms | Allocations: 4156)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 4442)
+
+
+Started GET "/home/about" for 127.0.0.1 at 2022-07-25 16:03:05 +0200
+Processing by HomeController#about as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/about.html.erb within layouts/application
+  Rendered home/about.html.erb within layouts/application (Duration: 0.9ms | Allocations: 146)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 215)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 3215)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 3800)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:03:06 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 0.7ms | Allocations: 84)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 8.5ms | Allocations: 1344)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 3918)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 0.5ms | Allocations: 4222)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:03:50 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.7ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1960)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 5219)
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.5ms | Allocations: 6096)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:06:19 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.9ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 10.9ms | Allocations: 1978)
+  Rendered home/_header.html.erb (Duration: 2.4ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 5237)
+Completed 200 OK in 29ms (Views: 26.6ms | ActiveRecord: 0.5ms | Allocations: 6119)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:08:05 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.7ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1966)
+  Rendered home/_header.html.erb (Duration: 2.0ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | Allocations: 5225)
+Completed 200 OK in 26ms (Views: 24.1ms | ActiveRecord: 0.6ms | Allocations: 6107)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:10:53 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 2.1ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1945)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 5204)
+Completed 200 OK in 23ms (Views: 20.7ms | ActiveRecord: 0.5ms | Allocations: 6086)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:11:14 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 2.0ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 12.1ms | Allocations: 1951)
+  Rendered home/_header.html.erb (Duration: 1.9ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 5210)
+Completed 200 OK in 30ms (Views: 27.9ms | ActiveRecord: 0.5ms | Allocations: 6092)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:12:29 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.4ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.9ms | Allocations: 1957)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 18.8ms | Allocations: 5216)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.5ms | Allocations: 6098)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:14:10 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.7ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 9.6ms | Allocations: 1971)
+  Rendered home/_header.html.erb (Duration: 1.9ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 5230)
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.5ms | Allocations: 6112)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:15:25 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  Rendered buddies/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1237)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1332)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms | Allocations: 2194)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<h1>Buddies List</h1>
+
+<table id="buddies" class="table table-striped table-bordered table-hover">
+<thead class="table-dark">
+<tr>
+  <th><strong>First name:</strong></th>
+  <th><strong>Last name:</strong></th>
+  <th><strong>Phone num:</strong></th>
+  <th><strong>Github:</strong></th>
+</tr>
+</thead>
+  <% @buddies.each do |buddy| %>
+    <%= render buddy %>
+  <% end %>
+</table>
+
+<%= link_to "New buddy", class="btn btn-secondary" new_buddy_path %>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <h1>Buddies List</h1>
+4:    
+5:    <table id="buddies" class="table table-striped table-bordered table-hover">
+6:    <thead class="table-dark">
+7:    <tr>
+8:      <th><strong>First name:</strong></th>
+9:      <th><strong>Last name:</strong></th>
+10:      <th><strong>Phone num:</strong></th>
+11:      <th><strong>Github:</strong></th>
+12:    </tr>
+13:    </thead>
+14:      <% @buddies.each do |buddy| %>
+15:        <%= render buddy %>
+16:      <% end %>
+17:    </table>
+18:    
+19:    <%= link_to "New buddy", class="btn btn-secondary" new_buddy_path %>
+  
+app/views/buddies/index.html.erb:19: syntax error, unexpected '='
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected '='
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected '='
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected '='
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected '='
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected '='
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:15:37 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  Rendered buddies/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1237)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1332)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2189)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<h1>Buddies List</h1>
+
+<table id="buddies" class="table table-striped table-bordered table-hover">
+<thead class="table-dark">
+<tr>
+  <th><strong>First name:</strong></th>
+  <th><strong>Last name:</strong></th>
+  <th><strong>Phone num:</strong></th>
+  <th><strong>Github:</strong></th>
+</tr>
+</thead>
+  <% @buddies.each do |buddy| %>
+    <%= render buddy %>
+  <% end %>
+</table>
+
+<%= link_to "New buddy", class:"btn btn-secondary" new_buddy_path %>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <h1>Buddies List</h1>
+4:    
+5:    <table id="buddies" class="table table-striped table-bordered table-hover">
+6:    <thead class="table-dark">
+7:    <tr>
+8:      <th><strong>First name:</strong></th>
+9:      <th><strong>Last name:</strong></th>
+10:      <th><strong>Phone num:</strong></th>
+11:      <th><strong>Github:</strong></th>
+12:    </tr>
+13:    </thead>
+14:      <% @buddies.each do |buddy| %>
+15:        <%= render buddy %>
+16:      <% end %>
+17:    </table>
+18:    
+19:    <%= link_to "New buddy", class:"btn btn-secondary" new_buddy_path %>
+  
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected local variable or method, expecting ')'
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:16:11 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  Rendered buddies/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1237)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1332)
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms | Allocations: 2188)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+<h1>Buddies List</h1>
+
+<table id="buddies" class="table table-striped table-bordered table-hover">
+<thead class="table-dark">
+<tr>
+  <th><strong>First name:</strong></th>
+  <th><strong>Last name:</strong></th>
+  <th><strong>Phone num:</strong></th>
+  <th><strong>Github:</strong></th>
+</tr>
+</thead>
+  <% @buddies.each do |buddy| %>
+    <%= render buddy %>
+  <% end %>
+</table>
+
+<%= link_to "New buddy", class:"btn btn-secondary", new_buddy_path %>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    <h1>Buddies List</h1>
+4:    
+5:    <table id="buddies" class="table table-striped table-bordered table-hover">
+6:    <thead class="table-dark">
+7:    <tr>
+8:      <th><strong>First name:</strong></th>
+9:      <th><strong>Last name:</strong></th>
+10:      <th><strong>Phone num:</strong></th>
+11:      <th><strong>Github:</strong></th>
+12:    </tr>
+13:    </thead>
+14:      <% @buddies.each do |buddy| %>
+15:        <%= render buddy %>
+16:      <% end %>
+17:    </table>
+18:    
+19:    <%= link_to "New buddy", class:"btn btn-secondary", new_buddy_path %>
+  
+app/views/buddies/index.html.erb:19: syntax error, unexpected ')', expecting =>
+app/views/buddies/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected ')', expecting =>
+app/views/buddies/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected ')', expecting =>
+app/views/buddies/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected ')', expecting =>
+app/views/buddies/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected ')', expecting =>
+app/views/buddies/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+app/views/buddies/index.html.erb:19: syntax error, unexpected ')', expecting =>
+app/views/buddies/index.html.erb:22: syntax error, unexpected `end', expecting ')'
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:16:43 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 2.3ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.6ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 11.2ms | Allocations: 1963)
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 5235)
+Completed 200 OK in 29ms (Views: 26.5ms | ActiveRecord: 0.5ms | Allocations: 6111)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:17:31 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.3ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 70)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 817)
+  Rendered home/_header.html.erb (Duration: 2.4ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 12.2ms | Allocations: 3383)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 0.3ms | Allocations: 4299)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:18:33 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.6ms | Allocations: 70)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 598)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 3164)
+Completed 200 OK in 25ms (Views: 16.7ms | ActiveRecord: 0.4ms | Allocations: 3954)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:18:36 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.3ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.6ms | Allocations: 70)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 5.0ms | Allocations: 631)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | Allocations: 3197)
+Completed 200 OK in 21ms (Views: 16.7ms | ActiveRecord: 0.3ms | Allocations: 3987)
+
+
+Started GET "/buddies/3/edit" for 127.0.0.1 at 2022-07-25 16:18:38 +0200
+Processing by BuddiesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (1.1ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/edit.html.erb within layouts/application
+  Rendered buddies/_form.html.erb (Duration: 9.4ms | Allocations: 2088)
+  Rendered buddies/edit.html.erb within layouts/application (Duration: 11.6ms | Allocations: 2450)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 20.7ms | Allocations: 5016)
+Completed 200 OK in 27ms (Views: 21.8ms | ActiveRecord: 1.1ms | Allocations: 5860)
+
+
+Started PATCH "/buddies/3" for 127.0.0.1 at 2022-07-25 16:18:42 +0200
+Processing by BuddiesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "buddy"=>{"first_name"=>"Anicet", "last_name"=>"Murhula", "phone_num"=>"+250786094847", "github"=>"@FantomasAnicet"}, "commit"=>"Update Buddy", "id"=>"3"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+Redirected to http://127.0.0.1:3000/buddies/3
+Completed 302 Found in 9ms (ActiveRecord: 0.5ms | Allocations: 1262)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:18:42 +0200
+Processing by BuddiesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.6ms | Allocations: 70)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 687)
+  Rendered home/_header.html.erb (Duration: 0.8ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | Allocations: 3253)
+Completed 200 OK in 20ms (Views: 15.4ms | ActiveRecord: 0.5ms | Allocations: 4092)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:18:43 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 0.7ms | Allocations: 70)
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1263)
+  Rendered home/_header.html.erb (Duration: 0.7ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 3837)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.6ms | Allocations: 4120)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:21:59 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.5ms | Allocations: 306)
+  Rendered buddies/_buddy.html.erb (Duration: 0.3ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.2ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 1977)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 5236)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.5ms | Allocations: 6094)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:22:01 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 0.6ms | Allocations: 70)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 27.3ms | Allocations: 5488)
+  Rendered layout layouts/application.html.erb (Duration: 28.0ms | Allocations: 5576)
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.4ms | Allocations: 6473)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `buddy' for #<ActionView::Base:0x0000000002d5c8>
+
+    <td>'.freeze;@output_buffer.append=( buddy.first_name );@output_buffer.safe_append='</td>
+                                         ^^^^^
+Did you mean?  @buddy):
+    2: 
+    3: # <%= render @buddy %>
+    4: <tbody>
+    5:     <td><%= buddy.first_name %></td>
+    6:     <td><%= buddy.last_name %></td>
+    7:     <td><%= buddy.phone_num %></td>
+    8:     <td><%= buddy.github %></td>    
+  
+app/views/buddies/show.html.erb:5
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:22:52 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1294)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 1389)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms | Allocations: 2731)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+# <%= render @buddy %>
+<tbody>
+    <td><%= @buddy.first_name %></td>
+    <td><%= @buddy.last_name %></td>
+    <td><%= @buddy.phone_num %></td>
+    <td><%= @buddy.github %></td>    
+    <td><%= @buddy "Show this buddy", buddy %></td>      
+ </tbody>
+
+<div>
+  <%= link_to "Edit this buddy", edit_buddy_path(@buddy) %> |
+  <%= link_to "Back to buddies", buddies_path %>
+
+  <%= button_to "Destroy this buddy", @buddy, method: :delete %>
+</div>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    # <%= render @buddy %>
+4:    <tbody>
+5:        <td><%= @buddy.first_name %></td>
+6:        <td><%= @buddy.last_name %></td>
+7:        <td><%= @buddy.phone_num %></td>
+8:        <td><%= @buddy.github %></td>    
+9:        <td><%= @buddy "Show this buddy", buddy %></td>      
+10:     </tbody>
+11:    
+12:    <div>
+13:      <%= link_to "Edit this buddy", edit_buddy_path(@buddy) %> |
+14:      <%= link_to "Back to buddies", buddies_path %>
+15:    
+16:      <%= button_to "Destroy this buddy", @buddy, method: :delete %>
+17:    </div>
+  
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:23:18 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.5ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1294)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1389)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.5ms | Allocations: 2815)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <p style="color: green"><%= notice %></p>
+
+# <%= render @buddy %>
+<tbody>
+    <td><%= @buddy.first_name %></td>
+    <td><%= @buddy.last_name %></td>
+    <td><%= @buddy.phone_num %></td>
+    <td><%= @buddy.github %></td>    
+    # <td><%= @buddy "Show this buddy", buddy %></td>      
+ </tbody>
+
+<div>
+  <%= link_to "Edit this buddy", edit_buddy_path(@buddy) %> |
+  <%= link_to "Back to buddies", buddies_path %>
+
+  <%= button_to "Destroy this buddy", @buddy, method: :delete %>
+</div>
+
+):
+1:    <p style="color: green"><%= notice %></p>
+2:    
+3:    # <%= render @buddy %>
+4:    <tbody>
+5:        <td><%= @buddy.first_name %></td>
+6:        <td><%= @buddy.last_name %></td>
+7:        <td><%= @buddy.phone_num %></td>
+8:        <td><%= @buddy.github %></td>    
+9:        # <td><%= @buddy "Show this buddy", buddy %></td>      
+10:     </tbody>
+11:    
+12:    <div>
+13:      <%= link_to "Edit this buddy", edit_buddy_path(@buddy) %> |
+14:      <%= link_to "Back to buddies", buddies_path %>
+15:    
+16:      <%= button_to "Destroy this buddy", @buddy, method: :delete %>
+17:    </div>
+  
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected string literal, expecting ')'
+app/views/buddies/show.html.erb:9: syntax error, unexpected ',', expecting ')'
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:23:44 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 2.1ms | Allocations: 306)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 1337)
+  Rendered home/_header.html.erb (Duration: 1.8ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | Allocations: 4583)
+Completed 200 OK in 30ms (Views: 24.7ms | ActiveRecord: 0.4ms | Allocations: 6038)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:25:12 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.3ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/_buddy.html.erb (Duration: 1.2ms | Allocations: 306)
+  Rendered buddies/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1332)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 380)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 4565)
+Completed 200 OK in 26ms (Views: 20.8ms | ActiveRecord: 0.3ms | Allocations: 6028)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:29:23 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 915)
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 4161)
+Completed 200 OK in 21ms (Views: 15.8ms | ActiveRecord: 0.4ms | Allocations: 5624)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:29:52 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.3ms | Allocations: 923)
+  Rendered home/_header.html.erb (Duration: 2.8ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 20.4ms | Allocations: 4169)
+Completed 200 OK in 30ms (Views: 24.6ms | ActiveRecord: 0.4ms | Allocations: 5632)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:31:25 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 946)
+  Rendered home/_header.html.erb (Duration: 1.5ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 4192)
+Completed 200 OK in 23ms (Views: 18.1ms | ActiveRecord: 0.4ms | Allocations: 5655)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:32:32 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.3ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 3.9ms | Allocations: 958)
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | Allocations: 4204)
+Completed 200 OK in 26ms (Views: 20.8ms | ActiveRecord: 0.3ms | Allocations: 5667)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:32:45 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.3ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 957)
+  Rendered home/_header.html.erb (Duration: 1.8ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 4203)
+Completed 200 OK in 20ms (Views: 15.7ms | ActiveRecord: 0.3ms | Allocations: 5666)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:33:30 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.4ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 951)
+  Rendered home/_header.html.erb (Duration: 1.3ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 4197)
+Completed 200 OK in 23ms (Views: 16.8ms | ActiveRecord: 0.4ms | Allocations: 5660)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:33:34 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (0.3ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 507)
+  Rendered home/_header.html.erb (Duration: 0.6ms | Allocations: 166)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 3078)
+Completed 200 OK in 18ms (Views: 13.7ms | ActiveRecord: 0.3ms | Allocations: 3951)
+
+
+Started GET "/buddies/3" for 127.0.0.1 at 2022-07-25 16:33:46 +0200
+Processing by BuddiesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBuddy Load (2.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies" WHERE "buddies"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/buddies_controller.rb:63:in `set_buddy'
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/show.html.erb within layouts/application
+  Rendered buddies/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 956)
+  Rendered home/_header.html.erb (Duration: 1.7ms | Allocations: 383)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 4202)
+Completed 200 OK in 28ms (Views: 19.8ms | ActiveRecord: 2.6ms | Allocations: 5579)
+
+
+Started GET "/buddies" for 127.0.0.1 at 2022-07-25 16:33:57 +0200
+Processing by BuddiesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering buddies/index.html.erb within layouts/application
+  [1m[36mBuddy Load (0.6ms)[0m  [1m[34mSELECT "buddies".* FROM "buddies"[0m
+  ↳ app/views/buddies/index.html.erb:14
+  Rendered buddies/_buddy.html.erb (Duration: 1.6ms | Allocations: 241)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/_buddy.html.erb (Duration: 0.4ms | Allocations: 59)
+  Rendered buddies/index.html.erb within layouts/application (Duration: 12.6ms | Allocations: 1787)
+  Rendered home/_header.html.erb (Duration: 1.2ms | Allocations: 165)
+  Rendered layout layouts/application.html.erb (Duration: 23.1ms | Allocations: 4375)
+Completed 200 OK in 26ms (Views: 23.9ms | ActiveRecord: 0.6ms | Allocations: 4757)
+
+

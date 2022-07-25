@@ -1,22 +1,7 @@
-<div id="<%= dom_id buddy %>">
-  <p>
-    <strong>First name:</strong>
-    <%= buddy.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= buddy.last_name %>
-  </p>
-
-  <p>
-    <strong>Phone num:</strong>
-    <%= buddy.phone_num %>
-  </p>
-
-  <p>
-    <strong>Github:</strong>
-    <%= buddy.github %>
-  </p>
-
-</div>
+  <tbody>
+    <td><%= buddy.first_name %></td>
+    <td><%= buddy.last_name %></td>
+    <td><%= buddy.phone_num %></td>
+    <td><%= buddy.github %></td>    
+    <td><%= link_to "Show this buddy", buddy %></td>      
+  </tbody>

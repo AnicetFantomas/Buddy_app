@@ -1,14 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Buddies</h1>
+<h1>Buddies List</h1>
 
-<div id="buddies">
+<table id="buddies" class="table table-striped table-bordered table-hover">
+<thead class="table-dark">
+<tr>
+  <th><strong>First name:</strong></th>
+  <th><strong>Last name:</strong></th>
+  <th><strong>Phone num:</strong></th>
+  <th><strong>Github:</strong></th>
+</tr>
+</thead>
   <% @buddies.each do |buddy| %>
     <%= render buddy %>
-    <p>
-      <%= link_to "Show this buddy", buddy %>
-    </p>
   <% end %>
-</div>
+</table>
 
-<%= link_to "New buddy", new_buddy_path %>
+<%= link_to "New buddy", new_buddy_path, class:"btn btn-secondary"  %>

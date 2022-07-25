@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @buddy %>
+<div>
+  <strong>First name:</strong>
+    <p><%= @buddy.first_name %></p></hr>
+    <strong>last name:</strong>
+    <p><%= @buddy.last_name %></p></hr>
+    <strong>Phone number:</strong>
+    <p><%= @buddy.phone_num %></p></hr>
+    <strong>Github:</strong>
+    <p><%= @buddy.github %></p> </hr>       
+ </div>
 
 <div>
-  <%= link_to "Edit this buddy", edit_buddy_path(@buddy) %> |
-  <%= link_to "Back to buddies", buddies_path %>
+  <%= link_to "Edit this buddy", edit_buddy_path(@buddy), class:"btn btn-secondary" %> 
+  <%= link_to "Back to buddies", buddies_path, class:"btn btn-secondary" %><br /><br />
 
-  <%= button_to "Destroy this buddy", @buddy, method: :delete %>
+  <%= button_to "Destroy this buddy", @buddy, method: :delete, class:"btn btn-warning" %>
 </div>
