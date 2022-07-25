@@ -12,26 +12,22 @@
   <% end %>
 
   <div class="mb-3">
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+    <%= form.text_field :first_name, class:"form-control", placeholder:"First Name" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+    <%= form.text_field :last_name, class:"form-control", placeholder:"Last Name" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :phone_num, style: "display: block" %>
-    <%= form.text_field :phone_num %>
+    <%= form.text_field :phone_num, class:"form-control", placeholder:"Phone Number" %>
   </div>
 
   <div class="mb-3">
-    <%= form.label :github, style: "display: block" %>
-    <%= form.text_field :github %>
+    <%= form.text_field :github, class:"form-control", placeholder:"Github"%>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-secondary" %>
   </div>
 <% end %>
